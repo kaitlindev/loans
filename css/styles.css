@@ -54,7 +54,7 @@ label {
  .title {
    font-family: 'Rubik', sans-serif;
      text-transform: uppercase;
-     font-size: 34px;
+     font-size: 38px;
      color: #8bc2b8;
      font-weight: 800;
      margin-bottom: 0px;
@@ -76,7 +76,60 @@ label {
     text-transform: uppercase;
     font-size: 24px;
     margin-top: 0px;
-     margin-bottom: 30px;
+}
+
+.headingHr { 
+    width: 25%;
+    margin-top: 0px;
+    height: 2px;
+    display: block;
+    border: 0;
+    border-top: 3px solid #37718E;
+    border-radius: 25px;
+    padding: 0; 
+    
+}
+
+.headingTwoHr { 
+    width: 11%;
+    margin-top: 0px;
+    height: 2px;
+    display: block;
+    border: 0;
+    border-top: 3px solid #37718E;
+    border-radius: 25px;
+    padding: 0; 
+    
+}
+
+.loanLabel { 
+    font-size: 16px;
+    color: #9bb8c6;
+}
+
+.lossLabel { 
+    font-size: 16px;
+    color: #c94f65;
+}
+
+.paymentLabel { 
+    font-size: 16px;
+    color: #7fbf7f;
+}
+
+.paymentAmt { 
+    font-size: 16px;
+    color: #b2d8b2;
+}
+
+.interestAmt { 
+    font-size: 16px;
+    color: #37718E;
+}
+
+.lossAmt { 
+    font-size: 16px;
+    color: #d57687;
 }
 
 .loanInput { 

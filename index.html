@@ -64,16 +64,58 @@
         <div class="row">
           <div class="col-lg-12">
               <h3 class="heading">Generated interest</h3> 
-            <p>daily: {{loan.dailyInterest() | currency}}</p>
-            <p>Interest generated weekly: {{loan.weeklyInterest() | currency}}</p>
-            <p>Interest generated monthly: {{loan.monthlyInterest() | currency}}</p>
-            <p>Interest generated annually: {{loan.annualInterest() | currency}}</p>
-            <hr />
-            <p>Monthly payment required to pay off loan in {{loan.period | number}} year(s): {{loan.emi() | currency}}</p>
-            <p>Total paid for loan: {{loan.repayment() | currency}} </p>
-            <p>Net loss: {{loan.loss() | currency}} </p>
+              <hr class="headingHr">
           </div>
         </div>
+         
+         <div class="row">
+          <div class="col-md-2">
+          </div>
+        <div class="col-md-2">
+              <p class="loanLabel"><i class="fa fa-usd" aria-hidden="true"></i> Daily: </p>
+              <p class="interestAmt">{{loan.dailyInterest() | currency}}</p>
+          </div>
+          <div class="col-md-2">
+              <p class="loanLabel"><i class="fa fa-usd" aria-hidden="true"></i> Weekly: </p>
+              <p class="interestAmt">{{loan.weeklyInterest() | currency}}</p>
+          </div>
+          <div class="col-md-2">
+              <p class="loanLabel"><i class="fa fa-usd" aria-hidden="true"></i> Monthly: </p>
+              <p class="interestAmt">{{loan.monthlyInterest() | currency}}</p>
+             </div>
+         <div class="col-md-2">
+              <p class="loanLabel"><i class="fa fa-usd" aria-hidden="true"></i> Annually: </p>
+              <p class="interestAmt">{{loan.annualInterest() | currency}}</p>
+         </div>
+             <div class="col-md-2">
+          </div>
+        </div>
+         
+         <div class="clear"><br></div>
+              
+           <div class="row">
+          <div class="col-lg-12">
+              <h3 class="heading">Payment</h3> 
+              <hr class="headingTwoHr">
+          </div>
+        </div>
+         
+         <div class="row">
+          <div class="col-md-6">
+              <p class="paymentLabel"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Monthly payment required to pay off loan in {{loan.period | number}} year(s):</p>
+              <p class="paymentAmt">{{loan.emi() | currency}}</p>
+          </div>
+
+          <div class="col-md-3">
+              <p class="loanLabel">Total paid for loan: </p>
+              <p class="interestAmt">{{loan.repayment() | currency}}</p>
+          </div>
+          <div class="col-md-3">
+             <p class="lossLabel"><i class="fa fa-arrow-down" aria-hidden="true"></i> Net loss: </p>
+              <p class="lossAmt">{{loan.loss() | currency}}</p>
+             </div>
+        </div>
+          
       </div>
 
     <!-- javascript-->
@@ -82,5 +124,6 @@
      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
+     <script src="https://use.fontawesome.com/79523df6a7.js"></script>
   </body>
 </html>
