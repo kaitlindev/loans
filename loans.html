@@ -1,0 +1,108 @@
+<html>
+
+   <head>
+      <title>Student Loan Repayment Calculator</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   </head>
+
+   <body>
+      <h2>Student Loan Repayment Calculator</h2>
+      <div ng-app = "loanApp" ng-controller = "loanController">
+        <!-- Input -->
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Enter principal:</p>
+            <input type = "currency" ng-model = "loan.principal">
+            <p>Enter interest rate:</p>
+            <input type = "currency" ng-model = "loan.interestRate">
+            <p>Enter period of years:</p>
+            <input type = "number" ng-model = "loan.period">
+            <p>Enter monthly payment:</p>
+            <input type = "currency" ng-model = "loan.payment">
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Interest generated daily: {{loan.dailyInterest() | currency}}</p>
+            <p>Interest generated weekly: {{loan.weeklyInterest() | currency}}</p>
+            <p>Interest generated monthly: {{loan.monthlyInterest() | currency}}</p>
+            <p>Interest generated annually: {{loan.annualInterest() | currency}}</p>
+            <hr />
+            <p>Monthly payment required to pay off loan in {{loan.period | number}} year(s): {{loan.emi() | currency}}</p>
+            <p>Total paid for loan: {{loan.repayment() | currency}} </p>
+            <p>Net loss: {{loan.loss() | currency}} </p>
+          </div>
+        </div>
+      </div>
+
+      <script>
+         var loanApp = angular.module("loanApp", []);
+         loanApp.controller('loanController', function($scope) {
+            $scope.loan = {
+               principal: 1000,
+               interestRate: 5,
+               period: 1,
+               interestPrnct: function() { /* convert to % */
+                  var loan = $scope.loan;
+                  var interest = loan.interestRate;
+                  var interestPrnct = (interest  / 100);
+                  return interestPrnct;
+               },
+               dailyInterest: function() {
+                  var loan = $scope.loan;
+                  var dailyInterest = (loan.interestPrnct() / 365) * loan.principal;
+                  return dailyInterest;
+               },
+               weeklyInterest: function() {
+                  var loan = $scope.loan;
+                  var weeklyInterest = (loan.interestPrnct() / 52) * loan.principal;
+                  return weeklyInterest;
+               },
+               monthlyInterest: function() {
+                  var loan = $scope.loan;
+                  var monthlyInterest = (loan.interestPrnct() / 12) * loan.principal;
+                  return monthlyInterest;
+               },
+               annualInterest: function() {
+                  var loan = $scope.loan;
+                  var annualInterest = (loan.interestPrnct()) * loan.principal;
+                  return annualInterest;
+               },
+               emi: function() { /* EMI = Equated Monthly Installment */
+                  var loan = $scope.loan;
+                  var p = loan.principal;
+                  var n = (loan.period * 12);
+                  var r = (loan.interestRate / 1200);
+                  var emi = ((p * r * Math.pow((1 + r), n)) / (Math.pow((1 + r),n) - 1 ));
+                  return emi;
+               },
+               repayment: function() { /* repayment = emi * n */
+                  var loan = $scope.loan;
+                  var emi = loan.emi();
+                  var n = (loan.period * 12);
+                  var repayment = (emi * n);
+                  return repayment;
+               },
+               loss: function() {
+                  var loan = $scope.loan;
+                  var loss = (loan.repayment() - loan.principal);
+                  return loss;
+               }
+            };
+         });
+      </script>
+
+   </body>
+</html>
