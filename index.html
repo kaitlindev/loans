@@ -26,50 +26,61 @@
   <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 </head>
 
- <body>
-   <h2 class="test">Student Loan Repayment Calculator</h2>
+ <body class="main">
+     <h1 class="title">Student Loan Repayment Calculator</h1>
+     <h2 class="subtitle">Calculating required monthly payment for your loan</h2>
+       
      <div ng-app = "loanApp" ng-controller = "loanController">
-      <form name="loanForm">
+        <form name="loanForm">
+            
+          <!-- Principal (P) -->
+          <div class="loanInput">
+            <label>Principal amount:</label>
+            <input type="currency" class="form-control" id="principalInput" name="principalInput" ng-model="loan.principal" required />
+              <div ng-messages="loanForm.principalInput.$error">
+                <div ng-message="required">This field is required</div>
+              </div>
+            </div>
 
-        <!-- Principal (P) -->
-        <label>Principal amount:</label>
-        <input type="currency" class="form-control" id="principalInput" name="principalInput" ng-model="loan.principal" required />
-        <div ng-messages="loanForm.principalInput.$error">
-          <div ng-message="required">This field is required</div>
-        </div>
+          <!-- Interest Rate (R) -->
+            <div class="loanInput">
+          <label>Interest rate:</label>
+          <input type="currency" class="form-control" id="interestInput" name="interestInput"  ng-model="loan.interestRate" required />
+          <div ng-messages="loanForm.interestInput.$error">
+            <div ng-message="required">This field is required</div>
+          </div>
+            </div>
 
-        <!-- Interest Rate (R) -->
-        <label>Interest rate:</label>
-        <input type="currency" class="form-control" id="interestInput" name="interestInput"  ng-model="loan.interestRate" required />
-        <div ng-messages="loanForm.interestInput.$error">
-          <div ng-message="required">This field is required</div>
-        </div>
-
-        <!-- Period (N) -->
-        <label>Period in years:</label>
-        <input type="number" class="form-control" id="periodInput" name="periodInput" ng-model = "loan.period" required />
-        <div ng-messages="loanForm.periodInput.$error">
-          <div ng-message="required">This field is required</div>
-        </div>
-      </form>
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Interest generated daily: {{loan.dailyInterest() | currency}}</p>
-          <p>Interest generated weekly: {{loan.weeklyInterest() | currency}}</p>
-          <p>Interest generated monthly: {{loan.monthlyInterest() | currency}}</p>
-          <p>Interest generated annually: {{loan.annualInterest() | currency}}</p>
-          <hr />
-          <p>Monthly payment required to pay off loan in {{loan.period | number}} year(s): {{loan.emi() | currency}}</p>
-          <p>Total paid for loan: {{loan.repayment() | currency}} </p>
-          <p>Net loss: {{loan.loss() | currency}} </p>
+          <!-- Period (N) -->
+            <div class="loanInput">
+          <label>Period in years:</label>
+          <input type="number" class="form-control" id="periodInput" name="periodInput" ng-model = "loan.period" required />
+          <div ng-messages="loanForm.periodInput.$error">
+            <div ng-message="required">This field is required</div>
+          </div>
+            </div>
+        </form>
+         
+        <div class="row">
+          <div class="col-lg-12">
+              <h3 class="heading">Generated interest</h3> 
+            <p>daily: {{loan.dailyInterest() | currency}}</p>
+            <p>Interest generated weekly: {{loan.weeklyInterest() | currency}}</p>
+            <p>Interest generated monthly: {{loan.monthlyInterest() | currency}}</p>
+            <p>Interest generated annually: {{loan.annualInterest() | currency}}</p>
+            <hr />
+            <p>Monthly payment required to pay off loan in {{loan.period | number}} year(s): {{loan.emi() | currency}}</p>
+            <p>Total paid for loan: {{loan.repayment() | currency}} </p>
+            <p>Net loss: {{loan.loss() | currency}} </p>
+          </div>
         </div>
       </div>
-    </div>
 
     <!-- javascript-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-messages.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
