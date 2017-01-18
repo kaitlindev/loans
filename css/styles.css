@@ -27,6 +27,27 @@
  /*************************
  * 00. Defaults
  *************************/
+ h1, h2, body, p {
+   font-family: 'Rubik', sans-serif;
+ }
+
+ .test {
+   font-family: 'Rubik', sans-serif;
+ }
+
+ label { display: inline-block;   }
+
  /*************************
  * 01. Body
  *************************/
+ #principalInput {
+   width: 10%;
+ }
+
+ #interestInput {
+   width: 10%;
+ }
+
+#periodInput {
+  width: 5%;
+}
