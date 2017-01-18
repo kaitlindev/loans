@@ -5,7 +5,7 @@ First attempt at an AngularJS app.
 * Last modified: January 18th, 2017.
 * URL: http://kiddography.com/projects/loans/index.html
 * Languages: HTML, CSS, Javascript, JQuery
-* Frameworks: Bootstrap, AngularJS
+* Frameworks: Bootstrap v3.3.7, AngularJS v1.4.2
 
 ## **SOURCES** ##
 
