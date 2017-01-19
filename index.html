@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <!-- meta -->
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
@@ -16,107 +15,106 @@
   <!-- title -->
   <title>Student Loan Payment Calculator</title>
 
-  <!-- css -->
-  <link type="text/css" rel="stylesheet" media="screen" href="css/styles.css">
-  <link type="text/css" rel="stylesheet" media="screen" href="css/styles-responsive.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
   <!-- google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+
+  <!-- css -->
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" media="screen" href="css/styles.css">
+  <link type="text/css" rel="stylesheet" media="screen" href="css/styles-responsive.css">
 </head>
+ <body>
+   <h1>Student Loan Repayment Calculator</h1>
+   <h2>Calculating required monthly payment for your loan</h2>
+   <div ng-app = "loanApp" ng-controller = "loanController">
+      <form name="loanForm">
 
- <body class="main">
-     <h1 class="title">Student Loan Repayment Calculator</h1>
-     <h2 class="subtitle">Calculating required monthly payment for your loan</h2>
-       
-     <div ng-app = "loanApp" ng-controller = "loanController">
-        <form name="loanForm">
-            
-          <!-- Principal (P) -->
-          <div class="loanInput">
-            <label>Principal amount:</label>
-            <input type="currency" class="form-control" id="principalInput" name="principalInput" ng-model="loan.principal" required />
-              <div ng-messages="loanForm.principalInput.$error">
-                <div ng-message="required">This field is required</div>
-              </div>
-            </div>
+        <!-- Principal (P) -->
+        <div class="loanInput">
+          <label>Principal amount:</label>
+          <input type="number" class="form-control" id="principalInput" name="principalInput" ng-model="loan.principal" min="1"  max="999999" required />
+          <div ng-messages="loanForm.principalInput.$error">
+            <div class="error" ng-message="required">Principal is required.</div>
+            <div class="error" ng-message="min">Principal must be at least $1.</div>
+            <div class="error" ng-message="max">Principal must be less than $1,000,000.</div>
+          </div>
+        </div>
 
-          <!-- Interest Rate (R) -->
-            <div class="loanInput">
+        <!-- Interest Rate (R) -->
+        <div class="loanInput">
           <label>Interest rate:</label>
-          <input type="currency" class="form-control" id="interestInput" name="interestInput"  ng-model="loan.interestRate" required />
+          <input type="number" class="form-control" id="interestInput" name="interestInput"  ng-model="loan.interestRate" min="0.0001"  max="100" required />
           <div ng-messages="loanForm.interestInput.$error">
-            <div ng-message="required">This field is required</div>
+            <div class="error" ng-message="required">Interest rate is required.</div>
+            <div class="error" ng-message="min">Interest rate must be greater than 0%.</div>
+            <div class="error" ng-message="max">Interest rate must be less than 100%.</div>
           </div>
-            </div>
+        </div>
 
-          <!-- Period (N) -->
-            <div class="loanInput">
+        <!-- Period (N) -->
+        <div class="loanInput">
           <label>Period in years:</label>
-          <input type="number" class="form-control" id="periodInput" name="periodInput" ng-model = "loan.period" required />
+          <input type="number" class="form-control" id="periodInput" name="periodInput" ng-model = "loan.period" min="1"  max="100"  required />
           <div ng-messages="loanForm.periodInput.$error">
-            <div ng-message="required">This field is required</div>
-          </div>
-            </div>
-        </form>
-         
-        <div class="row">
-          <div class="col-lg-12">
-              <h3 class="heading">Generated interest</h3> 
-              <hr class="headingHr">
+            <div class="error" ng-message="required">Period is required.</div>
+            <div class="error" ng-message="min">Period must be at least 1.</div>
+            <div class="error" ng-message="max">Period must be less than 100.</div>
           </div>
         </div>
-         
-         <div class="row">
-          <div class="col-md-2">
-          </div>
-        <div class="col-md-2">
-              <p class="loanLabel"><i class="fa fa-usd" aria-hidden="true"></i> Daily: </p>
-              <p class="interestAmt">{{loan.dailyInterest() | currency}}</p>
-          </div>
-          <div class="col-md-2">
-              <p class="loanLabel"><i class="fa fa-usd" aria-hidden="true"></i> Weekly: </p>
-              <p class="interestAmt">{{loan.weeklyInterest() | currency}}</p>
-          </div>
-          <div class="col-md-2">
-              <p class="loanLabel"><i class="fa fa-usd" aria-hidden="true"></i> Monthly: </p>
-              <p class="interestAmt">{{loan.monthlyInterest() | currency}}</p>
-             </div>
-         <div class="col-md-2">
-              <p class="loanLabel"><i class="fa fa-usd" aria-hidden="true"></i> Annually: </p>
-              <p class="interestAmt">{{loan.annualInterest() | currency}}</p>
-         </div>
-             <div class="col-md-2">
-          </div>
-        </div>
-         
-         <div class="clear"><br></div>
-              
-           <div class="row">
-          <div class="col-lg-12">
-              <h3 class="heading">Payment</h3> 
-              <hr class="headingTwoHr">
-          </div>
-        </div>
-         
-         <div class="row">
-          <div class="col-md-6">
-              <p class="paymentLabel"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Monthly payment required to pay off loan in {{loan.period | number}} year(s):</p>
-              <p class="paymentAmt">{{loan.emi() | currency}}</p>
-          </div>
+      </form>
 
-          <div class="col-md-3">
-              <p class="loanLabel">Total paid for loan: </p>
-              <p class="interestAmt">{{loan.repayment() | currency}}</p>
-          </div>
-          <div class="col-md-3">
-             <p class="lossLabel"><i class="fa fa-arrow-down" aria-hidden="true"></i> Net loss: </p>
-              <p class="lossAmt">{{loan.loss() | currency}}</p>
-             </div>
+      <!-- Generated Interest -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Generated interest</h3>
+          <hr id="interestHr">
         </div>
-          
       </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+          <p class="loan-label"><i class="fa fa-usd" aria-hidden="true"></i> Daily: </p>
+          <p class="loan-value">{{loan.dailyInterest() | currency}}</p>
+        </div>
+        <div class="col-md-2">
+          <p class="loan-label"><i class="fa fa-usd" aria-hidden="true"></i> Weekly: </p>
+          <p class="loan-value">{{loan.weeklyInterest() | currency}}</p>
+        </div>
+        <div class="col-md-2">
+          <p class="loan-label"><i class="fa fa-usd" aria-hidden="true"></i> Monthly: </p>
+          <p class="loan-value">{{loan.monthlyInterest() | currency}}</p>
+        </div>
+        <div class="col-md-2">
+          <p class="loan-label"><i class="fa fa-usd" aria-hidden="true"></i> Annually: </p>
+          <p class="loan-value">{{loan.annualInterest() | currency}}</p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="clear"><br></div>
+
+      <!-- Payment -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Payment</h3>
+          <hr id="paymentHr">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="payment-label"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Monthly payment required to pay off loan in {{loan.period | number}} year(s):</p>
+          <p class="payment-value">{{loan.emi() | currency}}</p>
+        </div>
+        <div class="col-md-3">
+          <p class="loan-label">Total paid for loan: </p>
+          <p class="loan-value">{{loan.repayment() | currency}}</p>
+        </div>
+        <div class="col-md-3">
+          <p class="loss-label"><i class="fa fa-arrow-down" aria-hidden="true"></i> Net loss: </p>
+          <p class="loss-value">{{loan.loss() | currency}}</p>
+        </div>
+      </div>
+    </div>
 
     <!-- javascript-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
