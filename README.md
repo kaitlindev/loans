@@ -19,6 +19,6 @@ First attempt at an AngularJS app.
 * [AngularJS - ngMessages] (https://angularjs.org/) - v1.4.2 © 2010-2015 Google, Inc.
 
 ## **PENDING** ##
-* CSS styling.
+* ~~CSS styling.~~
 * Media queries. 
 * Additional features.
