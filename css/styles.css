@@ -18,6 +18,7 @@
  * Date          Revision Description                                                     Modified By
  * --------------------------------------------------------------------------------------------------
  * 01.17.2017 - Created Original Document                                          KAK
+ * 01.19.2017 - Finished styles                                                            KAK
  * ==================================================================================================
  *
  * - Contents -
@@ -33,14 +34,6 @@
     text-align: center;
   }
 
-  label {
-    display: inline-block;
-    color: #9bb8c6;
-  }
-
- /*************************
- * 01. Body
- *************************/
   h1 {
     text-transform: uppercase;
     font-size: 38px;
@@ -67,6 +60,14 @@
     margin-top: 10px;
   }
 
+  label {
+    display: inline-block;
+    color: #9bb8c6;
+  }
+
+ /*************************
+ * 01. Body
+ *************************/
   .loanInput {
     margin-bottom: 20px;
   }
