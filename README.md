@@ -2,7 +2,7 @@
 
 First attempt at an AngularJS app.
 
-* Last modified: January 19th, 2017.
+* Last modified: January 23rd, 2017.
 * URL: http://kiddography.com/projects/loans/index.html
 * Languages: HTML, CSS, Javascript, JQuery
 * Frameworks: Bootstrap v3.3.7, AngularJS v1.4.2
@@ -17,8 +17,9 @@ First attempt at an AngularJS app.
 ### JavaScript/JQuery: ###
 * [AngularJS] (https://angularjs.org/) - v1.4.2 © 2010-2015 Google, Inc.
 * [AngularJS - ngMessages] (https://angularjs.org/) - v1.4.2 © 2010-2015 Google, Inc.
+* [Angular Tooltips] (https://github.com/720kb/angular-tooltips) - © 2014 - 720kb (Filippo Oretti, Dario Andrei).
 
 ## **PENDING** ##
 * ~~CSS styling.~~
 * ~~Media queries.~~
-* Additional features.
+* ~~Tool tips.~~
