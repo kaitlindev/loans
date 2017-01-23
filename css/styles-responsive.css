@@ -90,9 +90,27 @@
      }
 
      .loan-label {
-       font-size: 16px;
-       color: #9bb8c6;
-       padding: 0px;
+       font-size: 13px;
+     }
+
+     .loan-value {
+       font-size: 13px;
+     }
+
+     .payment-label {
+       font-size: 14px;
+     }
+
+     .payment-value {
+       font-size: 14px;
+     }
+
+     .loss-label {
+       font-size: 14px;
+     }
+
+     .loss-value {
+       font-size: 14px;
      }
  }
  /* ---------------------------------------------------------------------- */
@@ -177,6 +195,29 @@
    /*************************
    * 01. Body
    *************************/
+   .loan-label {
+     font-size: 15px;
+   }
+
+   .loan-value {
+     font-size: 15px;
+   }
+
+   .payment-label {
+     font-size: 15px;
+   }
+
+   .payment-value {
+     font-size: 15px;
+   }
+
+   .loss-label {
+     font-size: 15px;
+   }
+
+   .loss-value {
+     font-size: 15px;
+   }
  }
  /* ---------------------------------------------------------------------- */
  /* -------------------------------Small Devices ---------------------- */
@@ -290,6 +331,30 @@
      margin: 0 auto;
      padding-left: 20px;
      text-align: center;
+   }
+
+   .loan-label {
+     font-size: 16px;
+   }
+
+   .loan-value {
+     font-size: 16px;
+   }
+
+   .payment-label {
+     font-size: 16px;
+   }
+
+   .payment-value {
+     font-size: 16px;
+   }
+
+   .loss-label {
+     font-size: 16px;
+   }
+
+   .loss-value {
+     font-size: 16px;
    }
  }
  /* ---------------------------------------------------------------------- */

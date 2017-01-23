@@ -72,6 +72,18 @@
     margin-bottom: 20px;
   }
 
+  #monthlyPaymentBtn {
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  #payoffTimeBtn {
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
   #principalInput {
     width: 10%;
     margin: 0 auto;

@@ -1,4 +1,4 @@
-loanApp.controller('loanController', function($scope) {
+loanApp.controller('monthlyPaymentController', function($scope) {
    $scope.loan = {
       principal: 1000,
       interestRate: 5,
