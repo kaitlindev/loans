@@ -40,12 +40,12 @@
        <!--- /////////////////////////////////////// -->
        <script type = "text/ng-template" id = "monthlyPayment.htm">
           <div ng-controller="monthlyPaymentController">
-            <form name="loanForm">
+            <form name="monthlyPaymentForm">
               <!-- Principal (P) -->
               <div class="loanInput">
                 <a href="#" tooltips tooltip-template="{{loan.principalToolTip}}" tooltip-side="right" tooltip-size="medium"><label>Principal amount:</label></a>
                 <input type="number" class="form-control" id="principalInput" name="principalInput" ng-model="loan.principal" min="1"  max="999999" required />
-                <div ng-messages="loanForm.principalInput.$error">
+                <div ng-messages="monthlyPaymentForm.principalInput.$error">
                   <div class="error" ng-message="required">Principal is required.</div>
                   <div class="error" ng-message="min">Principal must be at least $1.</div>
                   <div class="error" ng-message="max">Principal must be less than $1,000,000.</div>
@@ -56,7 +56,7 @@
               <div class="loanInput">
                   <a href="#" tooltips tooltip-template="{{loan.interestRateToolTip}}" tooltip-side="left" tooltip-size="medium"><label>Interest rate:</label></a>
                 <input type="number" class="form-control" id="interestInput" name="interestInput"  ng-model="loan.interestRate" min="0.0001"  max="100" required />
-                <div ng-messages="loanForm.interestInput.$error">
+                <div ng-messages="monthlyPaymentForm.interestInput.$error">
                   <div class="error" ng-message="required">Interest rate is required.</div>
                   <div class="error" ng-message="min">Interest rate must be greater than 0%.</div>
                   <div class="error" ng-message="max">Interest rate must be less than 100%.</div>
@@ -67,7 +67,7 @@
               <div class="loanInput">
                 <a href="#" tooltips tooltip-template="{{loan.periodToolTip}}" tooltip-side="right" tooltip-size="medium"><label>Period in years:</label></a>
                 <input type="number" class="form-control" id="periodInput" name="periodInput" ng-model = "loan.period" min="1"  max="100"  required />
-                <div ng-messages="loanForm.periodInput.$error">
+                <div ng-messages="monthlyPaymentForm.periodInput.$error">
                   <div class="error" ng-message="required">Period is required.</div>
                   <div class="error" ng-message="min">Period must be at least 1.</div>
                   <div class="error" ng-message="max">Period must be less than 100.</div>
@@ -130,7 +130,59 @@
        <!--- //// Payoff Time View //// -->
        <!--- /////////////////////////////// -->
        <script type = "text/ng-template" id = "payoffTime.htm">
-          {{message}}
+         <div ng-controller="payoffTimeController">
+           <form name="payoffTimeForm">
+             <!-- Principal (P) -->
+             <div class="loanInput">
+               <a href="#" tooltips tooltip-template="{{loan.principalToolTip}}" tooltip-side="right" tooltip-size="medium"><label>Principal amount:</label></a>
+               <input type="number" class="form-control" id="principalInput" name="principalInput" ng-model="loan.principal" min="1"  max="999999" required />
+               <div ng-messages="payoffTimeForm.principalInput.$error">
+                 <div class="error" ng-message="required">Principal is required.</div>
+                 <div class="error" ng-message="min">Principal must be at least $1.</div>
+                 <div class="error" ng-message="max">Principal must be less than $1,000,000.</div>
+               </div>
+             </div>
+
+             <!-- Interest Rate (R) -->
+             <div class="loanInput">
+                 <a href="#" tooltips tooltip-template="{{loan.interestRateToolTip}}" tooltip-side="left" tooltip-size="medium"><label>Interest rate:</label></a>
+               <input type="number" class="form-control" id="interestInput" name="interestInput"  ng-model="loan.interestRate" min="0.0001"  max="100" required />
+               <div ng-messages="payoffTimeForm.interestInput.$error">
+                 <div class="error" ng-message="required">Interest rate is required.</div>
+                 <div class="error" ng-message="min">Interest rate must be greater than 0%.</div>
+                 <div class="error" ng-message="max">Interest rate must be less than 100%.</div>
+               </div>
+             </div>
+
+             <!-- Monthly Payment (M) -->
+             <div class="loanInput">
+               <a href="#" tooltips tooltip-template="{{loan.paymentToolTip}}" tooltip-side="right" tooltip-size="medium"><label>Monthly payment contributed:</label></a>
+               <input type="number" class="form-control" id="paymentInput" name="paymentInput" ng-model = "loan.payment" min="1"  max="999999"  required />
+               <div ng-messages="payoffTimeForm.paymentInput.$error">
+                 <div class="error" ng-message="required">Monthly payment is required.</div>
+                 <div class="error" ng-message="min">Monthly payment must be at least $1.</div>
+                 <div class="error" ng-message="max">Monthly payment must be less than $1,000,000.</div>
+               </div>
+             </div>
+           </form>
+
+           <!-- Payoff Time -->
+           <div class="row">
+             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+               <h3>Payoff Time</h3>
+               <hr id="payoffHr">
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+               <p class="payoff-label"><i class="fa fa-calendar-o" aria-hidden="true"></i> Months: </p>
+               <p class="payoff-value">{{loan.payoffMonths() | number}} ≈ {{loan.payoffMonths() | roundup}}</p>
+             </div>
+             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+               <p class="payoff-label"><i class="fa fa-calendar" aria-hidden="true"></i> Years: </p>
+               <p class="payoff-value">{{loan.payoffYears() | number}} ≈ {{loan.payoffYears() | roundup}}</p>
+             </div>
+           <div class="clear"><br></div>
        </script>
     </div>
 

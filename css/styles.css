@@ -103,6 +103,13 @@
     text-align: center;
   }
 
+  #paymentInput {
+    width: 10%;
+    margin: 0 auto;
+    padding-left: 30px;
+    text-align: center;
+  }
+
   #interestHr {
     width: 25%;
     margin-top: 0px;
@@ -115,6 +122,17 @@
   }
 
   #paymentHr {
+    width: 11%;
+    margin-top: 0px;
+    height: 2px;
+    display: block;
+    border: 0;
+    border-top: 3px solid #37718E;
+    border-radius: 25px;
+    padding: 0;
+  }
+
+  #payoffHr {
     width: 11%;
     margin-top: 0px;
     height: 2px;
@@ -157,4 +175,14 @@
 
   .error {
     color: #d57687;
+  }
+
+  .payoff-label {
+    font-size: 16px;
+    color: #9bb8c6;
+  }
+
+  .payoff-value {
+    font-size: 16px;
+    color: #37718E;
   }
