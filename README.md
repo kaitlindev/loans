@@ -23,4 +23,5 @@ First attempt at an AngularJS app.
 * ~~CSS styling.~~
 * ~~Media queries.~~
 * ~~Tool tips.~~
-* Add "Payoff Time" view.
+* ~~Create "monthly payment" view.~~
+* ~~Create "payoff time" view.~~
