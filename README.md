@@ -23,3 +23,4 @@ First attempt at an AngularJS app.
 * ~~CSS styling.~~
 * ~~Media queries.~~
 * ~~Tool tips.~~
+* Add "Payoff Time" view.
