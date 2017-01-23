@@ -3,6 +3,9 @@ loanApp.controller('loanController', function($scope) {
       principal: 1000,
       interestRate: 5,
       period: 1,
+      principalToolTip: "Total sum of money lent or invested.",
+      interestRateToolTip: "Amount charged by a lender expressed as a % of the principal.",
+      periodToolTip: "Length of time in years to pay back a loan.",
       interestPrnct: function() { /* convert to % */
          var loan = $scope.loan;
          var interest = loan.interestRate;
