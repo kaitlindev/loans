@@ -1,6 +1,8 @@
 # Student Loan Repayment Calculator #
 
-First attempt at an AngularJS app.
+First attempt at an AngularJS app.   
+Calculates monthly payment given principal, interest rate and period.  
+Calculates payoff time of loan given principal, interest rate and monthly payments.  
 
 * Last modified: January 23rd, 2017.
 * URL: http://kiddography.com/projects/loans/index.html
