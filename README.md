@@ -22,7 +22,6 @@ Calculates payoff time of loan given principal, interest rate and monthly paymen
 * [Angular Tooltips] (https://github.com/720kb/angular-tooltips) - © 2014 - 720kb (Filippo Oretti, Dario Andrei).
 
 ## **PENDING** ##
-* ~~Fix tab order.~~ > 02.20.17
 * Allow users to add multiple loans.
 
 ## **UPDATES** ##
@@ -31,3 +30,4 @@ Calculates payoff time of loan given principal, interest rate and monthly paymen
 * ~~Tool tips.~~
 * ~~Create "monthly payment" view.~~
 * ~~Create "payoff time" view.~~
+* ~~Fix tab order.~~ > 02.20.17
