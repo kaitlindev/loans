@@ -10,18 +10,21 @@ Calculates payoff time of loan given principal, interest rate and monthly paymen
 * Frameworks: Bootstrap v3.3.7, AngularJS v1.4.2
 
 ## **SOURCES** ##
-
-### HTML/CSS: ###
+#### HTML/CSS: ####
 * [Bootstrap](http://getbootstrap.com/) - v3.3.7 © 2011-2016 Twitter, Inc.
 * [Default Sizes for Twitter Bootstrap’s Media Queries](https://scotch.io/tutorials/default-sizes-for-twitter-bootstraps-media-queries) - © Mar 04, 2014, Nicholas Cerminara (Scotch.io).
 * [Device Media Queries](http://resizr.co/) - © Piers Rueb
 
-### JavaScript/JQuery: ###
+#### JavaScript/JQuery: ####
 * [AngularJS] (https://angularjs.org/) - v1.4.2 © 2010-2015 Google, Inc.
 * [AngularJS - ngMessages] (https://angularjs.org/) - v1.4.2 © 2010-2015 Google, Inc.
 * [Angular Tooltips] (https://github.com/720kb/angular-tooltips) - © 2014 - 720kb (Filippo Oretti, Dario Andrei).
 
 ## **PENDING** ##
+* Fix tab order.
+* Allow users to add multiple loans.
+
+## **UPDATES** ##
 * ~~CSS styling.~~
 * ~~Media queries.~~
 * ~~Tool tips.~~
