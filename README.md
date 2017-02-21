@@ -4,7 +4,7 @@ First attempt at an AngularJS app.
 Calculates monthly payment given principal, interest rate and period.  
 Calculates payoff time of loan given principal, interest rate and monthly payments.  
 
-* Last modified: January 23rd, 2017.
+* Last modified: 02.20.17
 * URL: http://kiddography.com/projects/loans/index.html
 * Languages: HTML, CSS, Javascript, JQuery
 * Frameworks: Bootstrap v3.3.7, AngularJS v1.4.2
@@ -22,7 +22,7 @@ Calculates payoff time of loan given principal, interest rate and monthly paymen
 * [Angular Tooltips] (https://github.com/720kb/angular-tooltips) - © 2014 - 720kb (Filippo Oretti, Dario Andrei).
 
 ## **PENDING** ##
-* Fix tab order.
+* ~~Fix tab order.~~ > 02.20.17
 * Allow users to add multiple loans.
 
 ## **UPDATES** ##
