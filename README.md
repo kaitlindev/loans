@@ -28,5 +28,5 @@ Calculates payoff time of loan given principal, interest rate and monthly paymen
 
 ## **KNOWN BUGS** ##
 | Description        | Device           | Date Found  | Date Fixed        | 
-| ------------- |:-------------:| -----:|-----:|
+| :--- |:-----| :---|:---|
 | Monthly payment input box is too small; does not show values.      | Mobile - iPhone 6s (Portrait) | 02.23.17 | Pending |
